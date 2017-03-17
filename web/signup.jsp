@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/3D-SLIDER.css">
+    @import url("http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css")
     <link rel="stylesheet" href="assets/css/3D-SLIDER1.css">
     <link rel="stylesheet" href="assets/css/Animated-Pretty-Product-List.css">
     <link rel="stylesheet" href="assets/css/Animated-Pretty-Product-List1.css">
@@ -84,26 +85,26 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="home.html"> <i
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="home.jsp"> <i
                                 class="glyphicon glyphicon-home"></i> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li role="presentation">
-                                <a href="home.html"> <i class="glyphicon glyphicon-home"></i> Home</a>
+                                <a href="home.jsp"> <i class="glyphicon glyphicon-home"></i> Home</a>
                             </li>
                             <li role="presentation">
-                                <a href="About.html"> <i class="glyphicon glyphicon-cog"></i> About</a>
+                                <a href="about.jsp"> <i class="glyphicon glyphicon-cog"></i> About</a>
                             </li>
                             <li role="presentation">
-                                <a href="Contact.html"> <i class="glyphicon glyphicon-earphone"></i> Contact Us</a>
+                                <a href="contact.jsp"> <i class="glyphicon glyphicon-earphone"></i> Contact Us</a>
                             </li>
                             <li role="presentation">
-                                <a href="Services.html"> <i class="glyphicon glyphicon-stats"></i> Services</a>
+                                <a href="services.jsp"> <i class="glyphicon glyphicon-stats"></i> Services</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
-                <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.html">Log In</a> <a
-                        class="btn btn-default action-button" role="button" href="signup.html">Sign Up</a></p>
+                <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.jsp">Log In</a> <a
+                        class="btn btn-default action-button" role="button" href="signup.jsp">Sign Up</a></p>
             </div>
         </div>
     </nav>
@@ -111,16 +112,16 @@
 <div class="register-photo">
     <div class="form-container">
         <div class="image-holder"></div>
-        <form method="post">
+        <form action="/login_submit" method="post">
             <h2 class="text-nowrap text-center text-info">New to TitanicTech ? </h2>
             <div class="form-group">
-                <input class="form-control" id = "fname" type="text" placeholder="First Name">
+                <input class="form-control" name="fname" type="text" placeholder="First Name">
             </div>
             <div class="form-group">
-                <input class="form-control" id ="lname" type="text" placeholder="Last Name">
+                <input class="form-control" name="lname" type="text" placeholder="Last Name">
             </div>
             <div class="form-group">
-                <input class="form-control" id = "emai" type="email" name="email" placeholder="Email" autofocus=""
+                <input class="form-control" type="email" name="email" placeholder="Email" autofocus=""
                        autocomplete="on">
             </div>
             <div class="form-group">
@@ -128,19 +129,17 @@
                        maxlength="15" minlength="6">
             </div>
             <div class="dropdown">
-                <button class="btn btn-success active dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-                        type="submit">Select post as HRP, HRM, SME or Applicant<span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                    <li role="presentation"><a href="#">Human Resources Manager</a></li>
-                    <li role="presentation"><a href="#">Human Resources Personnel </a></li>
-                    <li role="presentation"><a href="#">Subject Matter Expert </a></li>
-                    <li role="presentation"><a href="#">Applicant </a></li>
-                </ul>
+            <select name="position" class="form-control">
+                <option value="applicant">Applicant</option>
+                <option value="hrm">Human Resource Manager</option>
+                <option value="hrp">Humane Resource Personnel</option>
+                <option value="sme">Subject Matter Expert</option>
+            </select>
             </div>
             <div class="form-group"></div>
             <div class="form-group"></div>
             <div class="form-group">
-                <button class="btn btn-info btn-block" type="submit">Sign Up</button>
+                <button class="btn btn-info btn-block" type="submit">Sign Up</button></div>
         </form>
     </div>
 </div>
@@ -148,8 +147,8 @@
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
             <h3><a href="#">TitanicTech, Inc</a></h3>
-            <p class="links"><a href="home.html">Home</a><strong> · </strong><a href="Jobs.html">Jobs </a><strong>
-                · </strong><a href="Services.html">Services </a><strong> · </strong><a href="Contact.html">Contact</a>
+            <p class="links"><a href="home.jsp">Home</a><strong> · </strong><a href="jobs.jsp">Jobs </a><strong>
+                · </strong><a href="services.jsp">Services </a><strong> · </strong><a href="contact.jsp">Contact</a>
             </p>
             <p class="company-name">Copyright © 2017 TitanicTech,Inc. All rights reserved. </p>
         </div>

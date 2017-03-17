@@ -21,5 +21,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.0.M182" level="application_server_libraries" />
     <orderEntry type="library" name="mysql-connector-java-5.1.41-bin" level="project" />
+    <orderEntry type="library" name="swiper.jquery" level="application" />
+    <orderEntry type="library" name="aos" level="application" />
   </component>
 </module>

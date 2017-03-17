@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <servlet-name>TestClass</servlet-name>
-        <servlet-class>TestClass</servlet-class>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>SignupServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>TestClass</servlet-name>
-        <url-pattern>/TestClass</url-pattern>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup_submit</url-pattern>
     </servlet-mapping>
 </web-app>
