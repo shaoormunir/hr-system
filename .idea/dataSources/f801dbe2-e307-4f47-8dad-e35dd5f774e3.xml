@@ -13,49 +13,62 @@
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
     <table id="9" parent="2" name="users"/>
-    <column id="10" parent="9" name="userID">
+    <routine id="10" parent="2" name="login_proc">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <column id="11" parent="9" name="userID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="11" parent="9" name="email">
+    <column id="12" parent="9" name="email">
       <Position>2</Position>
       <DataType>varchar(256)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="9" name="uPassword">
+    <column id="13" parent="9" name="uPassword">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="9" name="firstName">
+    <column id="14" parent="9" name="firstName">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="9" name="lastName">
+    <column id="15" parent="9" name="lastName">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="9" name="position">
+    <column id="16" parent="9" name="position">
       <Position>6</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;applicant&apos;</DefaultExpression>
     </column>
-    <index id="16" parent="9" name="users_email_uindex">
+    <index id="17" parent="9" name="users_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="17" parent="9" name="PRIMARY">
+    <key id="18" parent="9" name="PRIMARY">
       <ColNames>userID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="18" parent="9" name="users_email_uindex">
+    <key id="19" parent="9" name="users_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
     </key>
+    <argument id="20" parent="10" name="in_email">
+      <DataType>varchar(256)|0</DataType>
+    </argument>
+    <argument id="21" parent="10" name="in_pass">
+      <DataType>varchar(20)|0</DataType>
+    </argument>
+    <argument id="22" parent="10" name="out_position">
+      <ArgumentDirection>O</ArgumentDirection>
+      <DataType>varchar(20)|0</DataType>
+    </argument>
   </database-model>
 </dataSource>

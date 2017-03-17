@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/3D-SLIDER.css">
@@ -76,12 +77,15 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand navbar-link" href="#"> <img src="assets/img/alphabet-block-t.jpg"></a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <i class="glyphicon glyphicon-home"></i> <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <i
+                                class="glyphicon glyphicon-home"></i> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li role="presentation">
                                 <a href="home.jsp"> <i class="glyphicon glyphicon-home"></i> Home</a>
@@ -98,30 +102,34 @@
                         </ul>
                     </li>
                 </ul>
-                <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.jsp">Log In</a> <a class="btn btn-default action-button" role="button" href="signup.jsp">Sign Up</a></p>
+                <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.jsp">Log In</a> <a
+                        class="btn btn-default action-button" role="button" href="signup.jsp">Sign Up</a></p>
             </div>
         </div>
     </nav>
 </div>
-<div class="login-card"><img src="assets/img/ii.jpg" class="profile-img-card" />
-    <p class="profile-name-card"> </p>
-    <form class="form-signin"><span class="reauth-email"> </span>
-        <input type="email" required placeholder="Email address" autofocus class="form-control" id="inputEmail" />
-        <input type="password" required placeholder="Password" class="form-control" id="inputPassword" />
+<div class="login-card">
+    <p class="profile-name-card"></p>
+    <form class="form-signin" method="post" action="${pageContext.request.contextPath}/login_submit"><span
+            class="reauth-email"> </span>
+        <input type="email" name="email" required placeholder="Email address" autofocus class="form-control"
+               id="inputEmail"/>
+        <input type="password" name="password" required placeholder="Password" class="form-control" id="inputPassword"/>
         <div class="checkbox">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" />Remember me</label>
+                    <input type="checkbox"/>Remember me</label>
             </div>
         </div>
         <button class="btn btn-info btn-block btn-lg btn-signin" type="submit">Sign in</button>
-        <button class="btn btn-info btn-block btn-lg btn-signin" type="submit">Continue using LinkedIn</button>
-    </form><a href="#" class="forgot-password">Forgot your password?</a></div>
+    </form>
+    <a href="#" class="forgot-password">Forgot your password?</a></div>
 <footer>
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
             <h3><a href="#">TitanicTech, Inc</a></h3>
-            <p class="links"><a href="home.jsp">Home</a><strong> · </strong><a href="jobs.jsp">Jobs </a><strong> · </strong><a href="services.jsp">Services </a><strong> · </strong><a href="contact.jsp">Contact</a></p>
+            <p class="links"><a href="home.jsp">Home</a><strong> · </strong><a href="jobs.jsp">Jobs </a><strong>
+                · </strong><a href="services.jsp">Services </a><strong> · </strong><a href="contact.jsp">Contact</a></p>
             <p class="company-name">Copyright © 2017 TitanicTech,Inc. All rights reserved. </p>
         </div>
         <div class="col-md-4 col-sm-6 footer-contacts">
@@ -132,7 +140,7 @@
                 <p class="footer-center-info email text-left"> +92 555 123456</p>
             </div>
             <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                <p> <a href="#" target="_blank">support@titanictech.com</a></p>
+                <p><a href="#" target="_blank">support@titanictech.com</a></p>
             </div>
         </div>
         <div class="clearfix visible-sm-block"></div>

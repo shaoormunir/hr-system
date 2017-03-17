@@ -112,13 +112,13 @@
 <div class="register-photo">
     <div class="form-container">
         <div class="image-holder"></div>
-        <form action="/login_submit" method="post">
+        <form action="${pageContext.request.contextPath}/signup_submit" method="post">
             <h2 class="text-nowrap text-center text-info">New to TitanicTech ? </h2>
             <div class="form-group">
-                <input class="form-control" name="fname" type="text" placeholder="First Name">
+                <input class="form-control" name="firstName" type="text" placeholder="First Name">
             </div>
             <div class="form-group">
-                <input class="form-control" name="lname" type="text" placeholder="Last Name">
+                <input class="form-control" name="lastName" type="text" placeholder="Last Name">
             </div>
             <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="Email" autofocus=""

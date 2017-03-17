@@ -12,4 +12,13 @@
         <servlet-name>SignupServlet</servlet-name>
         <url-pattern>/signup_submit</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login_submit</url-pattern>
+    </servlet-mapping>
 </web-app>

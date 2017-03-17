@@ -30,8 +30,13 @@ public class SignupServlet extends HttpServlet {
                     "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = con.prepareStatement(sql);
 
+            statement.setString(1, email);
+            statement.setString(2,pass);
+            statement.setString(3, firstName);
+            statement.setString(4, lastName);
+            statement.setString(5, position);
 
-
+            statement.execute();
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -39,38 +44,6 @@ public class SignupServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
 
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hrsystem";
-            String username = "root";
-            String password = "fogger345";
-            con = DriverManager.getConnection(url, username, password);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from users");
-
-            try (PrintWriter writer = response.getWriter()) {
-
-                writer.println("<!DOCTYPE html><html>");
-                writer.println("<head>");
-                writer.println("<meta charset=\"UTF-8\" />");
-                writer.println("<title>MyServlet.java:doGet(): Servlet code!</title>");
-                writer.println("</head>");
-                writer.println("<body>");
-
-
-                //writer.println("<h1>" + rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + " </h1>");
-
-                writer.println("<p> This shit is working. </p>");
-
-                writer.println("</body>");
-                writer.println("</html>");
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
