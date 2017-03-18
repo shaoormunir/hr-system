@@ -12,63 +12,165 @@
     <schema id="6" parent="1" name="sakila"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
-    <table id="9" parent="2" name="users"/>
-    <routine id="10" parent="2" name="login_proc">
+    <table id="9" parent="2" name="application"/>
+    <table id="10" parent="2" name="jobs"/>
+    <table id="11" parent="2" name="users"/>
+    <routine id="12" parent="2" name="login_proc">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <column id="11" parent="9" name="userID">
+    <column id="13" parent="9" name="applicationID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="12" parent="9" name="email">
+    <column id="14" parent="9" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="9" name="jobID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="9" name="CVPath">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="9" name="status">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;pending&apos;</DefaultExpression>
+    </column>
+    <column id="18" parent="9" name="smeRating">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="19" parent="9" name="hrmFeedback">
+      <Position>7</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <index id="20" parent="9" name="application_jobs_jobID_fk">
+      <ColNames>jobID</ColNames>
+    </index>
+    <index id="21" parent="9" name="application_users_userID_fk">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="22" parent="9" name="PRIMARY">
+      <ColNames>applicationID
+userID
+jobID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="9" name="application_users_userID_fk">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>hrsystem</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userID</RefColNames>
+    </foreign-key>
+    <foreign-key id="24" parent="9" name="application_jobs_jobID_fk">
+      <ColNames>jobID</ColNames>
+      <RefSchemaName>hrsystem</RefSchemaName>
+      <RefTableName>jobs</RefTableName>
+      <RefColNames>jobID</RefColNames>
+    </foreign-key>
+    <column id="25" parent="10" name="jobID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="10" name="jobTitle">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="jobDesc">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="coverPic">
+      <Position>4</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="29" parent="10" name="postDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="lastDate">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="31" parent="10" name="PRIMARY">
+      <ColNames>jobID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="11" name="userID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="11" name="email">
       <Position>2</Position>
       <DataType>varchar(256)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="9" name="uPassword">
+    <column id="34" parent="11" name="uPassword">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="9" name="firstName">
+    <column id="35" parent="11" name="firstName">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="9" name="lastName">
+    <column id="36" parent="11" name="lastName">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="9" name="position">
+    <column id="37" parent="11" name="position">
       <Position>6</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;applicant&apos;</DefaultExpression>
     </column>
-    <index id="17" parent="9" name="users_email_uindex">
+    <index id="38" parent="11" name="users_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="18" parent="9" name="PRIMARY">
+    <key id="39" parent="11" name="PRIMARY">
       <ColNames>userID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="19" parent="9" name="users_email_uindex">
+    <key id="40" parent="11" name="users_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
     </key>
-    <argument id="20" parent="10" name="in_email">
+    <argument id="41" parent="12" name="in_email">
       <DataType>varchar(256)|0</DataType>
     </argument>
-    <argument id="21" parent="10" name="in_pass">
+    <argument id="42" parent="12" name="in_pass">
       <DataType>varchar(20)|0</DataType>
     </argument>
-    <argument id="22" parent="10" name="out_position">
+    <argument id="43" parent="12" name="out_position">
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(20)|0</DataType>
+    </argument>
+    <argument id="44" parent="12" name="out_fname">
+      <ArgumentDirection>O</ArgumentDirection>
+      <DataType>varchar(50)|0</DataType>
+    </argument>
+    <argument id="45" parent="12" name="out_lname">
+      <ArgumentDirection>O</ArgumentDirection>
+      <DataType>varchar(50)|0</DataType>
     </argument>
   </database-model>
 </dataSource>

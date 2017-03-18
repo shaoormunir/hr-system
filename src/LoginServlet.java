@@ -1,8 +1,10 @@
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -24,13 +26,23 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             con = DriverManager.getConnection(url, username, password);
 
-            String sql = "{call login_proc(?,?,?)}";
+            String sql = "{call login_proc(?,?,?,?,?)}";
             CallableStatement statement = con.prepareCall(sql);
             statement.registerOutParameter(3, Types.VARCHAR);
+            statement.registerOutParameter(4, Types.VARCHAR);
+            statement.registerOutParameter(5, Types.VARCHAR);
             statement.setString(1, email);
             statement.setString(2, pass);
             statement.execute();
             String position = statement.getString(3);
+            String name = statement.getString(4)+" "+statement.getString(5);
+
+            HttpSession session = request.getSession(true);
+            session.setAttribute("name", name);
+            session.setAttribute("position", position);
+            RequestDispatcher requestDispatcher;
+            requestDispatcher = request.getRequestDispatcher("/applicant_dashboard.jsp");
+            requestDispatcher.forward(request, response);
 
             try (PrintWriter writer = response.getWriter()) {
 
@@ -44,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 
                 //writer.println("<h1>" + rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + " </h1>");
 
-                writer.println(position);
+                writer.println(position+" "+name);
 
                 writer.println("</body>");
                 writer.println("</html>");
