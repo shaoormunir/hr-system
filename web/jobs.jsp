@@ -6,7 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="hrsystem.Job" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <html>
 
 <head>
@@ -136,29 +139,8 @@
     </div>
 </div>
 <h1 class="text-nowrap text-center text-info">What's new ?</h1>
-
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.SQLException" %>
 <div>
-    <% ResultSet rs = null;
-        int count = 1;
-        try {
-            rs = Job.getJobs();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            assert rs != null;
-            rs.last();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            count = rs.getRow();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }%>
-    <c: for(int i=0;i<cout>
+    <c:forEach: items="${jobs}" var = "job" >
         <div class="container">
             <div class="row product-list">
                 <div class="col-md-4 col-sm-6 product-item animation-element slide-left">
@@ -170,7 +152,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8">
-                                <h2><a href="#"><%= count %>
+                                <h2><a href="#"><c:out value="${jobs.jobTitle}" >
                                 </a></h2></div>
                             <div class="col-xs-4"><a href="#" class="small-text">Posted: 1-1-17 </a></div>
                         </div>
@@ -198,7 +180,7 @@
                 </div>
             </div>
         </div>
-    </c:>
+    </c:forEach:>
 </div>
 <div class="container">
     <div class="row">

@@ -1,5 +1,3 @@
-import hrsystem.Job;
-
 /**
  * Created by shaoo on 18-Mar-17.
  */
